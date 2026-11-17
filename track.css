@@ -1,0 +1,192 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f8f5;
+    color: #243b2d;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: white;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5ebe5;
+}
+
+.logo {
+    color: #17633b;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #526358;
+    font-size: 14px;
+}
+
+nav a.active {
+    color: #17633b;
+    font-weight: bold;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 90px 20px;
+}
+
+.tracking {
+    background: white;
+    width: 100%;
+    max-width: 680px;
+    padding: 45px;
+    border-radius: 12px;
+    border: 1px solid #e6ece6;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+.eyebrow {
+    color: #24834d;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+h1 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #718076;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid #d6dfd7;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+button {
+    background: #17633b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 14px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #104b2c;
+}
+
+.result {
+    margin-top: 28px;
+    line-height: 2;
+    overflow-wrap: anywhere;
+}
+
+.result h2 {
+    margin-bottom: 12px;
+    color: #17633b;
+}
+
+.status {
+    background: #fff2d8;
+    color: #946313;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.error {
+    color: #c0392b;
+}
+
+footer {
+    text-align: center;
+    padding: 22px;
+    background: #174d32;
+    color: white;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main {
+        padding: 40px 15px;
+    }
+
+    .tracking {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+}
+
+.status.pending {
+    background-color: #ffe0e0;
+    color: red;
+}
+
+.status.in-progress {
+    background-color: #dbeafe;
+    color: blue;
+}
+
+.status.resolved {
+    background-color: #dcfce7;
+    color: green;
+}

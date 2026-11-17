@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Waste360</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Waste360</a>
+        <span>Administration Panel</span>
+    </header>
+
+    <main>
+        <div class="heading">
+            <p class="eyebrow">WASTE MANAGEMENT</p>
+            <h1>Admin Dashboard</h1>
+            <p>Monitor and manage community waste complaints.</p>
+        </div>
+
+        <section class="stats">
+            <div class="stat-card">
+                <p>Total Complaints</p>
+                <h2 id="total">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <p>Pending</p>
+                <h2 id="pending">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <p>In Progress</p>
+                <h2 id="progress">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <p>Resolved</p>
+                <h2 id="resolved">0</h2>
+            </div>
+        </section>
+
+        <section class="complaints">
+            <h2>All Complaints</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Complaint ID</th>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="complaintList"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>

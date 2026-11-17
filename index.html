@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste360 - Clean Communities</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h2>♻ Waste360</h2>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#report">Report Waste</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Let's Make Our Community Cleaner!</h1>
+        <p>Report garbage problems and help keep our surroundings clean.</p>
+        <a href="#report" class="btn">Report Now</a>
+    </section>
+
+    <section id="about" class="about">
+        <h2>How Waste360 Works</h2>
+        <div class="steps">
+            <div>📸<h3>Report</h3><p>Submit garbage complaints.</p></div>
+            <div>📍<h3>Track</h3><p>Track your complaint status.</p></div>
+            <div>✅<h3>Resolve</h3><p>Help create a cleaner community.</p></div>
+        </div>
+    </section>
+
+    <section id="report" class="report">
+        <h2>Report a Garbage Problem</h2>
+        <form id="complaintForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="text" id="location" placeholder="Complaint Location" required>
+            <textarea id="description" placeholder="Describe the garbage problem" required></textarea>
+            <button type="submit">Submit Complaint</button>
+        </form>
+        <p id="message"></p>
+    </section>
+
+    <footer>
+        <p>© 2026 Waste360 | Building Cleaner Communities</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

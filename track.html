@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Complaint | Waste360</title>
+    <link rel="stylesheet" href="track.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">♻ Waste360</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#report">Report Waste</a>
+            <a href="track.html" class="active">Track Complaint</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="tracking">
+            <p class="eyebrow">COMPLAINT MANAGEMENT</p>
+
+            <h1>Track Your Complaint</h1>
+
+            <p class="subtitle">
+                Enter your complaint ID to check the latest status
+                of your reported waste issue.
+            </p>
+
+            <form id="trackForm">
+                <label for="complaintID">Complaint ID</label>
+
+                <div class="search-box">
+                    <input
+                        type="text"
+                        id="complaintID"
+                        placeholder="Example: W3609505"
+                        required
+                    >
+
+                    <button type="submit">Track Status</button>
+                </div>
+            </form>
+
+            <div id="result" class="result"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Waste360 | Building Cleaner Communities</p>
+    </footer>
+
+    <script>
+        const trackForm = document.getElementById("trackForm");
+
+        trackForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const enteredID = document.getElementById("complaintID")
+                .value.trim().toUpperCase();
+
+            const complaints =
+                JSON.parse(localStorage.getItem("complaints")) || [];
+
+            const complaint = complaints.find(
+                item => item.id.toUpperCase() === enteredID
+            );
+
+            const result = document.getElementById("result");
+
+            if (complaint) {
+                result.innerHTML = `
+                    <h2>Complaint Found</h2>
+                    <p><strong>Complaint ID:</strong> ${complaint.id}</p>
+                    <p><strong>Name:</strong> ${complaint.name}</p>
+                    <p><strong>Location:</strong> ${complaint.location}</p>
+                    <p><strong>Description:</strong> ${complaint.description}</p>
+                    <p><strong>Status:</strong>
+                        <span class="status ${complaint.status.toLowerCase().replace(" ", "-")}">
+    ${complaint.status}
+</span>
+                `;
+            } else {
+                result.innerHTML = `
+                    <p class="error">
+                        No complaint found. Please check your complaint ID.
+                    </p>
+                `;
+            }
+        });
+    </script>
+
+</body>
+</html>
