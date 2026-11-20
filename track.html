@@ -53,23 +53,32 @@
         <p>Waste360 | Building Cleaner Communities</p>
     </footer>
 
-    <script>
-        const trackForm = document.getElementById("trackForm");
+    
+<script>
+    const trackForm = document.getElementById("trackForm");
 
-        trackForm.addEventListener("submit", function(event) {
-            event.preventDefault();
+    trackForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
 
-            const enteredID = document.getElementById("complaintID")
-                .value.trim().toUpperCase();
+        const enteredID = document.getElementById("complaintID")
+            .value.trim().toUpperCase();
 
-            const complaints =
-                JSON.parse(localStorage.getItem("complaints")) || [];
+        const result = document.getElementById("result");
+
+        try {
+            const response = await fetch(
+                "http://localhost:3000/api/complaints"
+            );
+
+            if (!response.ok) {
+                throw new Error("Could not fetch complaints.");
+            }
+
+            const complaints = await response.json();
 
             const complaint = complaints.find(
                 item => item.id.toUpperCase() === enteredID
             );
-
-            const result = document.getElementById("result");
 
             if (complaint) {
                 result.innerHTML = `
@@ -80,8 +89,9 @@
                     <p><strong>Description:</strong> ${complaint.description}</p>
                     <p><strong>Status:</strong>
                         <span class="status ${complaint.status.toLowerCase().replace(" ", "-")}">
-    ${complaint.status}
-</span>
+                            ${complaint.status}
+                        </span>
+                    </p>
                 `;
             } else {
                 result.innerHTML = `
@@ -90,8 +100,19 @@
                     </p>
                 `;
             }
-        });
-    </script>
+
+        } catch (error) {
+            result.innerHTML = `
+                <p class="error">
+                    Unable to connect to the server. Please try again.
+                </p>
+            `;
+
+            console.error(error);
+        }
+    });
+</script>
+
 
 </body>
 </html>

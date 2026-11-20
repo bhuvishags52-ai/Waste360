@@ -12,10 +12,12 @@
     <header>
         <h2>♻ Waste360</h2>
         <nav>
-            <a href="#">Home</a>
-            <a href="#about">About</a>
-            <a href="#report">Report Waste</a>
-        </nav>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#report">Report Waste</a>
+    <a href="track.html">Track Complaint</a>
+    <a href="admin.html">Admin</a>
+</nav>
     </header>
 
     <section class="hero">
@@ -27,20 +29,41 @@
     <section id="about" class="about">
         <h2>How Waste360 Works</h2>
         <div class="steps">
-            <div>📸<h3>Report</h3><p>Submit garbage complaints.</p></div>
-            <div>📍<h3>Track</h3><p>Track your complaint status.</p></div>
-            <div>✅<h3>Resolve</h3><p>Help create a cleaner community.</p></div>
+            <a href="#report">
+    📸
+    <h3>Report</h3>
+    <p>Submit garbage complaints.</p>
+</a>
+
+<a href="track.html">
+    📍
+    <h3>Track</h3>
+    <p>Track your complaint status.</p>
+</a>
+
+<div>
+    ✅
+    <h3>Resolve</h3>
+    <p>Help create a cleaner community.</p>
+</div>
         </div>
     </section>
 
     <section id="report" class="report">
         <h2>Report a Garbage Problem</h2>
         <form id="complaintForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="text" id="location" placeholder="Complaint Location" required>
-            <textarea id="description" placeholder="Describe the garbage problem" required></textarea>
-            <button type="submit">Submit Complaint</button>
-        </form>
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="text" id="location" placeholder="Complaint Location" required>
+    <textarea id="description" placeholder="Describe the garbage problem" required></textarea>
+
+    <select id="priority" required>
+        <option value="Medium" selected>Medium Priority</option>
+        <option value="Low">Low Priority</option>
+        <option value="High">High Priority</option>
+    </select>
+
+    <button type="submit">Submit Complaint</button>
+</form>
         <p id="message"></p>
     </section>
 
